@@ -1,0 +1,73 @@
+# Configuration for Stock Price Forecasting
+
+# Random Seed
+seed: 42
+
+# Data Configuration
+data:
+  input_len: 400
+  output_len: 100
+  total_predict_days: 100
+  target_col: "close_log"
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+
+# Training Configuration
+training:
+  batch_size: 32
+  num_epochs: 100
+  learning_rate: 0.001
+  early_stopping_patience: 10
+  device: "cuda"  # or "cpu"
+
+# Model Configurations
+models:
+  linear:
+    name: "LinearModel"
+    enabled: true
+  
+  nlinear:
+    name: "NLinearModel"
+    enabled: true
+  
+  dlinear:
+    name: "DLinearModel"
+    kernel_size: 25
+    enabled: true
+  
+  xlstm:
+    name: "xLSTMModel"
+    hidden_size: 128
+    num_layers: 2
+    dropout: 0.2
+    enabled: true
+  
+  xlstm_time:
+    name: "xLSTMTimeModel"
+    hidden_size: 128
+    num_layers: 2
+    n_heads: 4
+    dropout: 0.2
+    enabled: true
+  
+  timemixer:
+    name: "TimeMixerModel"
+    hidden_size: 128
+    n_scales: 3
+    kernel_size: 25
+    enabled: true
+
+# Post-processing Configuration
+postprocessing:
+  smoothing:
+    enabled: true
+    window_length: 9
+    polyorder: 2
+
+# Paths
+paths:
+  data_dir: "data"
+  models_dir: "models"
+  results_dir: "results"
+  submission_file: "submission.csv"
