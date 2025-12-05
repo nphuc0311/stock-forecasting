@@ -1,0 +1,22 @@
+# Core Dependencies
+torch==2.0.1
+numpy==1.24.3
+pandas==2.0.3
+scipy==1.11.1
+
+# Data Visualization
+matplotlib==3.7.2
+plotly==5.15.0
+
+# Web Interface
+gradio==4.7.1
+
+# Configuration Management
+pyyaml==6.0.1
+
+# Utilities
+tqdm==4.65.0
+
+# Optional: For CUDA support (uncomment if needed)
+# torchvision==0.15.2
+# torchaudio==2.0.2
